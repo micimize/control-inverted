@@ -7,4 +7,4 @@ exports:
  * `provides` for creating strictducks that implement a `provide` method
  * `Composit as default` for composing the above strictducks leveraging [bottle](https://github.com/young-steveo/bottlejs/tree/master/src/Bottle).
 
-Used by [bufflehead](https://github.com/strictduck/domain-driven-fullstack) to create the control-inverted high-level components types implemented by [bufflehead](https://github.com/strictduck/bufflehead).
+Used by [bufflehead](https://github.com/strictduck/bufflehead) to create the control-inverted high-level components types implemented by [bufflehead](https://github.com/strictduck/bufflehead).
