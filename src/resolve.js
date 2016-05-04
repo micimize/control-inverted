@@ -1,8 +1,14 @@
 import getPrototypeChain from 'get-prototype-chain'
+import { utils } from 'strictduck'
 
 export function satisfies({provider, dependency}){
     return getPrototypeChain(provider)
-        .filter(p => p == dependency || p instanceof dependency || p.constructor.name == dependency).length > 0
+        .filter(p => (
+            utils.equals(p, dependency) ||
+            p === dependency ||
+            p instanceof dependency ||
+            p.constructor.name == dependency
+        )).length > 0
 }
 
 export function findSatisfier({container, dependency}){
