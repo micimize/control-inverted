@@ -1,4 +1,4 @@
-import StrictDuck, { nameClass, extend, implement  } from 'strictduck'
+import StrictDuck, { utils, extend, implement  } from 'strictduck'
 import resolve from './resolve'
 
 export const Provider = extend({ name: 'Provider', methods: ['provide'] })
@@ -8,7 +8,7 @@ export default function provides({
     parent = StrictDuck,
     dependencies=[]
 }) {
-    return nameClass({
+    return utils.nameClass({
         name: name || parent.name,
         Class: class extends parent {
             constructor(...args){

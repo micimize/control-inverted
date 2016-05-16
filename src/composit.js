@@ -1,20 +1,26 @@
-import StrictDuck, { Main, implement  } from 'strictduck'
+import StrictDuck, { Main, implement, utils  } from 'strictduck'
 import Bottle from 'bottlejs'
 import depends from './depends'
 import resolve, { findSatisfier } from './resolve'
 
 function materializer(service){
-    return (container => new service({container})) 
+    return (container => new service({container}))
 }
 
 class Composit extends StrictDuck {
-    constructor({main: {Class: mainClass = Main, method: mainMethod = 'main'}}, ...services){
+    constructor({
+        main: {
+            Class: mainClass = Main,
+            method: mainMethod = 'main'
+        }
+    }, ...services){
         let providerMap = {}
         super(
             services.reduce(
                 (context, {dependency, provider}) => {
                     let name = provider.name || provider.constructor.name
                     providerMap[name] = provider
+
                     if(provider instanceof dependency) {
                         context.value(name, provider)
                     } else {

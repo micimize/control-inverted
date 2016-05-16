@@ -5,6 +5,7 @@ export function satisfies({provider, dependency}){
     return getPrototypeChain(provider)
         .filter(p => (
             utils.equals(p, dependency) ||
+            utils.is({instance: p, Class: dependency}) ||
             p === dependency ||
             p instanceof dependency ||
             p.constructor.name == dependency
@@ -12,7 +13,9 @@ export function satisfies({provider, dependency}){
 }
 
 export function findSatisfier({container, dependency}){
-    let satisfierArr = Object.keys(container.providers).filter(key => satisfies({provider: container.providers[key], dependency}))
+    let satisfierArr = Object.keys(container.providers).filter(key => satisfies({
+        provider: container.providers[key], dependency
+    }))
     let satisfier = satisfierArr.length && satisfierArr[0]
     return satisfier ? container[satisfier] : Error(`${dependency.name} is unsatsified!`)
 }
