@@ -1,6 +1,6 @@
 {
   "name": "strictduck-control-inverted",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Collection of tools for creating strictducks using Inversion of Control patterns",
   "main": "dist/index.js",
   "scripts": {
@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/strictduck/control-inverted#readme",
   "dependencies": {
-    "strictduck": "0.1.3",
-    "bottlejs": "^1.2.3",
+    "strictduck": "0.1.4",
+    "bottlejs": "1.2.3",
     "get-prototype-chain": "^1.0.1"
   },
   "devDependencies": {
-    "polypacker": "0.1.7"
+    "polypacker": "0.1.8"
   }
 }
